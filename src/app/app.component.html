@@ -1,0 +1,94 @@
+<!--<fuse-main></fuse-main>-->
+<div id="fuse-main">
+  <!--<mat-sidenav-container>-->
+    <div id="fuse-main-content">
+      <div id="wrapper">
+        <div class="content-wrapper">
+          <div class="fuse-content">
+          <!--<fuse-content></fuse-content>-->
+          <div id="register" fxLayout="row" fxLayoutAlign="start" style="background-image: url('assets/images/backgrounds/march.jpg')">
+
+            <div id="register-intro" fxFlex fxHide fxShow.gt-xs>
+
+              <div class="logo">
+                <img src="assets/images/logos/vobble.png">
+              </div>
+
+              <div class="title" >
+                Welcome to Vobble!
+              </div>
+
+              <!-- <div class="description" *fuseIfOnDom [@animate]="{value:'*',params:{delay:'100ms',y:'25px'}}">
+                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ullamcorper nisl erat,
+                   vel convallis elit fermentum pellentesque. Sed mollis velit facilisis facilisis viverra.
+               </div>-->
+
+            </div>
+
+            <div id="register-form-wrapper" >
+
+              <div id="register-form">
+
+                <div class="logo" fxHide.gt-xs>
+                  <span>V</span>
+                </div>
+
+                <div class="title">Reset Password</div>
+                <!--<div class="description">Sed mollis velit facilisis facilisis viverra</div>-->
+
+                <form name="registerForm" [formGroup]="registerForm" (submit)="onSubmit()" novalidate>
+
+                  <mat-form-field>
+                    <input matInput type="email" placeholder="Email" formControlName="email" required>
+                    <mat-error *ngIf="registerFormErrors.email.required">
+                      Email is required
+                    </mat-error>
+                    <mat-error *ngIf="!registerFormErrors.email.required && registerFormErrors.email.email">
+                      Please enter a valid email address
+                    </mat-error>
+                  </mat-form-field>
+
+
+
+                  <mat-form-field>
+                    <input  matInput type="password" placeholder="Password" formControlName="password" required minlength="6">
+                    <mat-error *ngIf="registerFormErrors.password.required">
+                      Password is required
+                    </mat-error>
+
+                    <mat-error *ngIf="registerFormErrors.password.minlength">
+                      Password must be 6 digits at least
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field>
+                    <input
+                      matInput type="password" placeholder="Password (Confirm)" formControlName="passwordConfirm" required>
+                    <mat-error *ngIf="registerFormErrors.passwordConfirm.required">
+                      Password confirmation is required
+                    </mat-error>
+
+                    <mat-error *ngIf="registerFormErrors.passwordConfirm.notEquivalent">
+                      Password confirm mismatch
+                    </mat-error>
+                  </mat-form-field>
+
+
+
+                  <button mat-raised-button color="accent" class="submit-button" aria-label="Reset"
+                          type="submit" [disabled]="registerForm.invalid">
+                    Reset
+                  </button>
+
+                </form>
+
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!--</mat-sidenav-container>-->
+</div>
