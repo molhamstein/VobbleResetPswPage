@@ -11,7 +11,7 @@ export class AuthService {
     return new Promise((resolve, reject) => {
       const headers = new HttpHeaders()
         .set('Content-Type', 'application/json');
-      this.http.post('http://159.65.202.38:3000/api/users/reset-password?access_token='+token,{email: val.email,newPassword : val.password}, {
+      this.http.post('http://104.217.253.15:7000/api/users/reset-password?access_token='+token,{email: val.email,newPassword : val.password}, {
         headers: headers
       })
         .subscribe(
